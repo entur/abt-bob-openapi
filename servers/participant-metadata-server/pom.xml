@@ -12,6 +12,7 @@
   <name>participant-metadata-server</name>
   <description>participant-metadata-server</description>
   <version>0.0.1-SNAPSHOT</version>
+  <url>https://github.com/entur/abt-bob-openapi/servers/participant-metadata-server</url>
   <dependencies>
     <dependency>
       <groupId>io.swagger</groupId>

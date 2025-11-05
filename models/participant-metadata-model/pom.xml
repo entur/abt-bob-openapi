@@ -12,6 +12,7 @@
   <name>participant-metadata-model</name>
   <description>participant-metadata-model</description>
   <version>0.0.1-SNAPSHOT</version>
+  <url>https://github.com/entur/abt-bob-openapi/models/participant-metadata-model</url>
   <dependencies>
     <dependency>
       <groupId>io.swagger</groupId>
