@@ -6,10 +6,10 @@
   <artifactId>parent</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>BoB openapi parent</name>
+  <name>BoB OpenAPI parent</name>
   <description>parent</description>
 
-  <url>https://github.com/entur/abt-bob-openapi</url>
+  <url>https://github.com/entur/bob-openapi</url>
   <organization>
     <name>Entur AS</name>
     <url>http://www.entur.org/</url>
@@ -32,9 +32,9 @@
 </developers>
 
   <scm>
-    <connection>scm:git:ssh://git@github.com/entur/abt-bob-openapi.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/entur/abt-bob-openapi.git</developerConnection>
-    <url>https://github.com/entur/abt-bob-openapi/tree/main</url>
+    <connection>scm:git:ssh://git@github.com/entur/bob-openapi.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/entur/bob-openapi.git</developerConnection>
+    <url>https://github.com/entur/bob-openapi/tree/main</url>
     <tag>HEAD</tag>
   </scm>
 

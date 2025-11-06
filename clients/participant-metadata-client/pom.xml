@@ -12,7 +12,7 @@
   <artifactId>participant-metadata-client</artifactId>
   <description>participant-metadata-client</description>
   <version>0.0.1-SNAPSHOT</version>
-  <url>https://github.com/entur/abt-bob-openapi/clients/participant-metadata-client</url>
+  <url>https://github.com/entur/bob-openapi/clients/participant-metadata-client</url>
   <dependencies>
     <dependency>
       <groupId>io.swagger</groupId>

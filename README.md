@@ -1,4 +1,4 @@
-# abt-bob-openapi
+# bob-openapi
 OpenAPI artifacts for the [BoB standard](https://bitbucket.org/samtrafiken/workspace/projects/BOBS).
 
 ## Supported APIs:
