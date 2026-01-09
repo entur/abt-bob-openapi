@@ -45,7 +45,7 @@
     <jakarta.annotation-api.version>3.0.0</jakarta.annotation-api.version>
     <jackson-databind-nullable.version>0.2.8</jackson-databind-nullable.version>
     <jreleaser-maven-plugin.version>1.21.0</jreleaser-maven-plugin.version>
-    <junit.version>5.13.4</junit.version>
+    <junit.version>6.0.2</junit.version>
     <jsr305.version>3.0.2</jsr305.version>
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>8</maven.compiler.target>
@@ -61,7 +61,7 @@
     <maven-surefire-plugin.version>3.5.4</maven-surefire-plugin.version>
     <openapi-generator-version>7.17.0</openapi-generator-version>
     <servlet-api.version>6.1.0</servlet-api.version>
-    <spotless.version>2.46.1</spotless.version>
+    <spotless.version>3.1.0</spotless.version>
     <spring.version>6.2.12</spring.version>
     <swagger-annotations-version>1.6.16</swagger-annotations-version>
   </properties>
