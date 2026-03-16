@@ -62,7 +62,7 @@
     <openapi-generator-version>7.20.0</openapi-generator-version>
     <servlet-api.version>6.1.0</servlet-api.version>
     <spotless.version>3.3.0</spotless.version>
-    <spring.version>6.2.12</spring.version>
+    <spring.version>7.0.6</spring.version>
     <swagger-annotations-version>1.6.16</swagger-annotations-version>
   </properties>
   <dependencyManagement>
