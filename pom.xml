@@ -40,10 +40,10 @@
 
   <properties>
     <apache-httpclient5.version>5.6</apache-httpclient5.version>
-    <jackson.version>2.21.1</jackson.version>
+    <jackson.version>2.21.2</jackson.version>
     <jakarta.validation-api.version>3.1.1</jakarta.validation-api.version>
     <jakarta.annotation-api.version>3.0.0</jakarta.annotation-api.version>
-    <jackson-databind-nullable.version>0.2.9</jackson-databind-nullable.version>
+    <jackson-databind-nullable.version>0.2.10</jackson-databind-nullable.version>
     <jreleaser-maven-plugin.version>1.23.0</jreleaser-maven-plugin.version>
     <junit.version>6.0.3</junit.version>
     <jsr305.version>3.0.2</jsr305.version>
@@ -61,7 +61,7 @@
     <maven-surefire-plugin.version>3.5.5</maven-surefire-plugin.version>
     <openapi-generator-version>7.20.0</openapi-generator-version>
     <servlet-api.version>6.1.0</servlet-api.version>
-    <spotless.version>3.3.0</spotless.version>
+    <spotless.version>3.4.0</spotless.version>
     <spring.version>6.2.12</spring.version>
     <swagger-annotations-version>1.6.16</swagger-annotations-version>
   </properties>
