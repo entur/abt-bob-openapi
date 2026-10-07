@@ -39,13 +39,13 @@
   </scm>
 
   <properties>
-    <apache-httpclient5.version>5.6</apache-httpclient5.version>
-    <jackson.version>2.21.1</jackson.version>
+    <apache-httpclient5.version>5.6.4</apache-httpclient5.version>
+    <jackson.version>2.22.3</jackson.version>
     <jakarta.validation-api.version>3.1.1</jakarta.validation-api.version>
     <jakarta.annotation-api.version>3.0.0</jakarta.annotation-api.version>
-    <jackson-databind-nullable.version>0.2.9</jackson-databind-nullable.version>
-    <jreleaser-maven-plugin.version>1.23.0</jreleaser-maven-plugin.version>
-    <junit.version>6.0.3</junit.version>
+    <jackson-databind-nullable.version>0.2.12</jackson-databind-nullable.version>
+    <jreleaser-maven-plugin.version>1.26.0</jreleaser-maven-plugin.version>
+    <junit.version>6.1.3</junit.version>
     <jsr305.version>3.0.2</jsr305.version>
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>8</maven.compiler.target>
@@ -55,14 +55,14 @@
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>8</maven.compiler.target>
     <maven-deploy-plugin.version>3.1.4</maven-deploy-plugin.version>
-    <maven-enforcer-plugin.version>3.6.2</maven-enforcer-plugin.version>
+    <maven-enforcer-plugin.version>3.6.3</maven-enforcer-plugin.version>
     <maven-javadoc-plugin.version>3.12.0</maven-javadoc-plugin.version>
     <maven-source-plugin.version>3.4.0</maven-source-plugin.version>
-    <maven-surefire-plugin.version>3.5.5</maven-surefire-plugin.version>
-    <openapi-generator-version>7.20.0</openapi-generator-version>
+    <maven-surefire-plugin.version>3.6.0</maven-surefire-plugin.version>
+    <openapi-generator-version>7.26.0</openapi-generator-version>
     <servlet-api.version>6.1.0</servlet-api.version>
-    <spotless.version>3.3.0</spotless.version>
-    <spring.version>6.2.12</spring.version>
+    <spotless.version>3.10.3</spotless.version>
+    <spring.version>7.0.9</spring.version>
     <swagger-annotations-version>1.6.16</swagger-annotations-version>
   </properties>
   <dependencyManagement>
