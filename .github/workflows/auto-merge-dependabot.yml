@@ -22,7 +22,6 @@ jobs:
       auto-merge-dependencies: true
       auto-merge-docker: false
       auto-merge-github-actions: false
-      channel-id: ${{ vars.CHANNEL_ID }}
     secrets: inherit
     permissions:
       pull-requests: write
