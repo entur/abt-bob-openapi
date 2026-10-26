@@ -22,14 +22,18 @@
     </license>
   </licenses>
 
-<developers>
+  <developers>
     <developer>
-        <name>Thomas Rørvik Skjølberg</name>
-        <email>thomas.rorvik.skjolberg@entur.org</email>
-        <organization>Entur</organization>
-        <organizationUrl>http://www.entur.org</organizationUrl>
+      <name>Entur</name>
+      <organization>Entur</organization>
+      <organizationUrl>https://www.entur.org</organizationUrl>
     </developer>
-</developers>
+    <developer>
+      <name>Waltti</name>
+      <organization>Waltti</organization>
+      <organizationUrl>https://waltti.fi</organizationUrl>
+    </developer>
+  </developers>
 
   <scm>
     <connection>scm:git:ssh://git@github.com/entur/abt-bob-openapi.git</connection>
