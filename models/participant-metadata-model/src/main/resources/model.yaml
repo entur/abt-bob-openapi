@@ -1,6 +1,6 @@
 swagger: '2.0'
 info:
-  version: 2.2.2
+  version: 2.3.1
   title: BoB.participantMetadata.API
   description: |
     The Participant Metadata API provides an interface for participants to manage metadata coordinated by an Administering Body (AB). An Administering Body is responsible for hosting the central register for participant public keys, interface endpoints, issuer signature constraints and domain names. The purpose of this API is to enable interoperability between participants by giving them access to each other's metadata. It is the participant's responsibility that the metadata in this register is correct and up-to-date. Every organisation that wants to issue MTBs must be a registered participant. This API does not support adding new participants or removing already existing participants, it only supports managing metadata for existing participants.
@@ -181,7 +181,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/jwkPublic'
+              $ref: '#/definitions/mtbJwkPublic'
         '401':
           description: unauthorised
         '404':
@@ -205,15 +205,16 @@ paths:
           description: JWK object
           required: true
           schema:
-            $ref: '#/definitions/jwkPublic'
+            $ref: '#/definitions/mtbJwkPublic'
       security:
         - Pop: []
       responses:
         '201':
           description: successful operation
-          schema:
-            type: string
-            description: the URL of the newly created key object
+          headers:
+            Location:
+              description: URL of created key object
+              type: string
         '401':
           description: unauthorised
         '403':
@@ -247,7 +248,7 @@ paths:
         '200':
           description: successful operation
           schema:
-            $ref: '#/definitions/jwkPublic'
+            $ref: '#/definitions/mtbJwkPublic'
         '401':
           description: unauthorised
         '404':
@@ -277,15 +278,16 @@ paths:
           description: JWK object
           required: true
           schema:
-            $ref: '#/definitions/jwkPublic'
+            $ref: '#/definitions/mtbJwkPublic'
       security:
         - Pop: []
       responses:
-        '201':
+        '200':
           description: successful operation
-          schema:
-            type: string
-            description: the URL of the newly created key object
+          headers:
+            Location:
+              description: URL of created key object
+              type: string
         '401':
           description: unauthorised
         '404':
@@ -339,7 +341,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/jwkPublic'
+              $ref: '#/definitions/authtokenJwkPublic'
         '401':
           description: unauthorised
         '404':
@@ -363,15 +365,16 @@ paths:
           description: JWK object
           required: true
           schema:
-            $ref: '#/definitions/jwkPublic'
+            $ref: '#/definitions/authtokenJwkPublic'
       security:
         - Pop: []
       responses:
         '201':
           description: successful operation
-          schema:
-            type: string
-            description: the URL of the newly created key object
+          headers:
+            Location:
+              description: URL of created key object
+              type: string
         '401':
           description: unauthorised
         '403':
@@ -404,7 +407,7 @@ paths:
         '200':
           description: successful operation
           schema:
-            $ref: '#/definitions/jwkPublic'
+            $ref: '#/definitions/authtokenJwkPublic'
         '401':
           description: unauthorised
         '404':
@@ -433,15 +436,16 @@ paths:
           description: JWK object
           required: true
           schema:
-            $ref: '#/definitions/jwkPublic'
+            $ref: '#/definitions/authtokenJwkPublic'
       security:
         - Pop: []
       responses:
-        '201':
+        '200':
           description: successful operation
-          schema:
-            type: string
-            description: the URL of the newly created key object
+          headers:
+            Location:
+              description: URL of created key object
+              type: string
         '401':
           description: unauthorised
         '404':
@@ -687,9 +691,10 @@ paths:
       responses:
         '201':
           description: successful operation
-          schema:
-            type: string
-            description: the URL of the newly created issuerSignatureConstraint object
+          headers:
+            Location:
+              description: URL of created issuerSignatureConstraint object
+              type: string
         '401':
           description: unauthorised
         '404':
@@ -721,8 +726,7 @@ paths:
         '200':
           description: successful operation
           schema:
-            items:
-              $ref: '#/definitions/issuerSignatureConstraint'
+            $ref: '#/definitions/issuerSignatureConstraint'
         '401':
           description: unauthorised
         '404':
@@ -870,7 +874,7 @@ securityDefinitions:
     name: Authorization
     in: header
 definitions:
-  jwkPublic:
+  authtokenJwkPublic:
     type: object
     description: Public JSON Web Key (JWK) as defined in <a href="https://tools.ietf.org/html/rfc7517" target="_blank">RFC 7517</a>. Two algorithms are supported&#58; the primary algorithm is EC (kty=EC) and the fallback algorithm is RSA (kty=RSA).
     required:
@@ -905,6 +909,47 @@ definitions:
         type: string
         description: RSA exponent parameter (required for kty=RSA)
         example: AQAB
+  mtbJwkPublic:
+    type: object
+    description: Public JSON Web Key (JWK) as defined in <a href="https://tools.ietf.org/html/rfc7517" target="_blank">RFC 7517</a>. Two algorithms are supported&#58; the primary algorithm is EC (kty=EC) and the fallback algorithm is RSA (kty=RSA).
+    required:
+      - kty
+      - kid
+    properties:
+      kty:
+        type: string
+        description: JWA key type
+        example: "EC"
+      kid:
+        type: string
+        description: JWK key identifier
+        example: "34:20190101_bob_mtb"
+      crv:
+        type: string
+        description: Curve type (required for kty=EC)
+        example: "P-256"
+      x:
+        type: string
+        description: EC x coordinate (required for kty=EC)
+        example: "MKBCTNIcKUSDii11ySs3526iDZ8AiTo7Tu6KPAqv7D4"
+      y:
+        type: string
+        description: EC y coordinate (required for kty=EC)
+        example: "4Etl6SRW2YiLUrN5vfvVHuhp7x8PxltmWWlbbM4IFyM"
+      n:
+        type: string
+        description: RSA modulus parameter (required for kty=RSA)
+        example: "0vx7agoebGcQSuuPiLJXZptN9nndrQmbXEps2aiAFbW..."
+      e:
+        type: string
+        description: RSA exponent parameter (required for kty=RSA)
+        example: AQAB
+      bob_sc:
+        type: string
+        description: Signature constraint restricting signature verification to either ID MTB or Ticket MTB
+        enum:
+          - id
+          - ticket
   issuerSignatureConstraint:
     type: object
     required:
@@ -1004,12 +1049,12 @@ definitions:
         description: Public components of current MTB signing keys
         type: array
         items:
-          $ref: '#/definitions/jwkPublic'
+          $ref: '#/definitions/mtbJwkPublic'
       authtokenPublicKeys:
         description: Public components of current auth token signing keys
         type: array
         items:
-          $ref: '#/definitions/jwkPublic'
+          $ref: '#/definitions/authtokenJwkPublic'
       interfaceEndpoints:
         description: Location of available endpoints
         type: array

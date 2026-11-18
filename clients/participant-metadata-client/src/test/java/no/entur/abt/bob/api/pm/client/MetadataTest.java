@@ -8,11 +8,11 @@ import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
 
+import no.entur.abt.bob.api.pm.model.MtbJwkPublic;
 import org.junit.jupiter.api.Test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import no.entur.abt.bob.api.pm.model.JwkPublic;
 import no.entur.abt.bob.api.pm.model.Jws;
 import no.entur.abt.bob.api.pm.model.ParticipantMetadata;
 
@@ -33,7 +33,7 @@ public class MetadataTest {
 
 		List<ParticipantMetadata> participantMetadata = Arrays.asList(mapper.readValue(decode, ParticipantMetadata[].class));
 
-		List<JwkPublic> mtbPublicKeys = participantMetadata.get(0).getMtbPublicKeys();
+		List<MtbJwkPublic> mtbPublicKeys = participantMetadata.get(0).getMtbPublicKeys();
 
 		assertFalse(mtbPublicKeys.isEmpty());
 	}
