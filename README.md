@@ -5,7 +5,8 @@ OpenAPI artifacts for the [BoB standard](https://bitbucket.org/samtrafiken/works
 
 ## Supported APIs:
 
- * [Participant Metadata v2](https://samtrafiken.atlassian.net/wiki/spaces/BOB/pages/115614537/Participant+Metadata)
+ * [Participant Metadata v2](https://samtrafiken.atlassian.net/wiki/spaces/BOB/pages/5288951818/BoB+Participant+Metadata+API)
+   * [Read more](https://samtrafiken.atlassian.net/wiki/spaces/BOB/pages/5285609487/4.+Participant+Metadata+Service)
 
 # License
 [European Union Public Licence v1.2](https://eupl.eu/).
