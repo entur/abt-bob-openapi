@@ -80,6 +80,15 @@ public class ParticipantMetadataFileClientTest {
 	}
 
 	@Test
+	public void throwsForEmptyBody() {
+		BasicClassicHttpResponse response = new BasicClassicHttpResponse(200);
+		response.setEntity(new ByteArrayEntity(new byte[0], ContentType.APPLICATION_JSON));
+		response.addHeader("ETag", ETAG);
+
+		assertThrows(IOException.class, () -> ParticipantMetadataFileClient.handle(response, null));
+	}
+
+	@Test
 	public void throwsForUnexpectedStatusCode() {
 		BasicClassicHttpResponse response = new BasicClassicHttpResponse(409);
 		response.setEntity(new ByteArrayEntity("busy".getBytes(StandardCharsets.UTF_8), ContentType.TEXT_PLAIN));
@@ -95,9 +104,12 @@ public class ParticipantMetadataFileClientTest {
 		assertEquals(Duration.ofSeconds(60), ParticipantMetadataFileClient.parseMaxAge("public, MAX-AGE = 60, must-revalidate"));
 		assertEquals(Duration.ofSeconds(60), ParticipantMetadataFileClient.parseMaxAge("s-maxage=10, max-age=\"60\""));
 		assertEquals(Duration.ZERO, ParticipantMetadataFileClient.parseMaxAge("no-cache, max-age=0"));
+		assertEquals(Duration.ofSeconds(60), ParticipantMetadataFileClient.parseMaxAge("example=\"a,max-age=3600,b\", max-age=60"));
+		assertEquals(Duration.ofSeconds(7), ParticipantMetadataFileClient.parseMaxAge("example=\"a\\\",max-age=1\", max-age=7"));
 
 		assertNull(ParticipantMetadataFileClient.parseMaxAge(null));
 		assertNull(ParticipantMetadataFileClient.parseMaxAge("no-store"));
+		assertNull(ParticipantMetadataFileClient.parseMaxAge("max-age"));
 		assertNull(ParticipantMetadataFileClient.parseMaxAge("max-age=abc"));
 		assertNull(ParticipantMetadataFileClient.parseMaxAge("max-age=-1"));
 	}

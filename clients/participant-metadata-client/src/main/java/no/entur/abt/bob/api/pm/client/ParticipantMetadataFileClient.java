@@ -17,9 +17,12 @@ import org.apache.hc.client5.http.utils.DateUtils;
 import org.apache.hc.core5.http.ClassicHttpResponse;
 import org.apache.hc.core5.http.ContentType;
 import org.apache.hc.core5.http.Header;
+import org.apache.hc.core5.http.HeaderElement;
 import org.apache.hc.core5.http.HttpHeaders;
 import org.apache.hc.core5.http.HttpStatus;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
+import org.apache.hc.core5.http.message.BasicHeaderValueParser;
+import org.apache.hc.core5.http.message.ParserCursor;
 import org.apache.hc.core5.util.Timeout;
 
 /**
@@ -128,7 +131,7 @@ public class ParticipantMetadataFileClient {
 
 		if (statusCode == HttpStatus.SC_OK) {
 			byte[] body = response.getEntity() != null ? EntityUtils.toByteArray(response.getEntity()) : null;
-			if (body == null) {
+			if (body == null || body.length == 0) {
 				throw new ClientProtocolException("Expected participant metadata file in response body");
 			}
 			return new ParticipantMetadataFileResponse(statusCode, body, etag, cacheControl, maxAge, date);
@@ -168,17 +171,17 @@ public class ParticipantMetadataFileClient {
 		if (cacheControl == null) {
 			return null;
 		}
-		for (String directive : cacheControl.split(",")) {
-			int index = directive.indexOf('=');
-			if (index == -1 || !directive.substring(0, index).trim().equalsIgnoreCase(MAX_AGE)) {
+		// the parser handles quoted values, which may contain commas
+		HeaderElement[] directives = BasicHeaderValueParser.INSTANCE.parseElements(cacheControl, new ParserCursor(0, cacheControl.length()));
+		for (HeaderElement directive : directives) {
+			if (!MAX_AGE.equalsIgnoreCase(directive.getName())) {
 				continue;
 			}
-			String value = directive.substring(index + 1).trim();
-			if (value.length() >= 2 && value.startsWith("\"") && value.endsWith("\"")) {
-				value = value.substring(1, value.length() - 1);
+			if (directive.getValue() == null) {
+				return null;
 			}
 			try {
-				long seconds = Long.parseLong(value);
+				long seconds = Long.parseLong(directive.getValue().trim());
 				return seconds >= 0 ? Duration.ofSeconds(seconds) : null;
 			} catch (NumberFormatException e) {
 				return null;
