@@ -75,7 +75,7 @@
             </goals>
             <configuration>
               <inputSpec>
-                ${maven.multiModuleProjectDirectory}/models/participant-metadata-model/src/main/resources/model.yaml
+                ${project.basedir}/../../models/participant-metadata-model/src/main/resources/model.yaml
               </inputSpec>
               <generatorName>spring</generatorName>
               <configOptions>
