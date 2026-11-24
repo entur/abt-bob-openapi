@@ -22,7 +22,8 @@ jobs:
       auto-merge-dependencies: true
       auto-merge-docker: false
       auto-merge-github-actions: false
-    secrets: inherit
+    secrets:
+      SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
     permissions:
       pull-requests: write
       contents: write
