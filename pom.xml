@@ -67,7 +67,7 @@
     <servlet-api.version>6.1.0</servlet-api.version>
     <spotless.version>3.11.0</spotless.version>
     <spring.version>7.0.10</spring.version>
-    <swagger-annotations-version>1.6.16</swagger-annotations-version>
+    <swagger-annotations-version>1.6.17</swagger-annotations-version>
   </properties>
   <dependencyManagement>
     <dependencies>
